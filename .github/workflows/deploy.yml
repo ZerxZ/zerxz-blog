@@ -44,17 +44,14 @@ jobs:
         run: pnpm run build 
       - name: Commit files
         run: |
-              cd docs/.vitepress/dist
-              git config --global init.defaultBranch gh-pages
-              git init
+              cd docs/.vitepress
+              git clone git@github.com:ZerxZ/zerxz.github.io.git -b gh-pages build
+              cp -r dist/* build
+              cd build
               git config --local user.email "github-actions[bot]@users.noreply.github.com"
               git config --local user.name "github-actions[bot]"
               git add .
               git commit -a -m "Deploy vitepress to GitHub Pages"
-      - name: Sync to Another Repository
-        uses: ad-m/github-push-action@master
-        with:
-            github_token: ${{ secrets.BOT_TOKEN }}
-            branch: gh-pages  # 目标仓库的分支
-            repository: zerxz/zerxz.github.io  # 目标仓库的用户名和仓库名
-            force: true
+              git remote rm origin
+              git remote add origin https://${{secrets.BOT_TOKEN}}@github.com/ZerxZ/zerxz.github.io.git
+              git push -force origin gh-pages
