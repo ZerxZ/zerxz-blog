@@ -62,11 +62,12 @@ jobs:
       uses: actions/download-artifact@v2.1.1
       with:
         name: vitepress
+        path: docs/.vitepress/dist
     - name: Commit files
       run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add .
+          git add docs/.vitepress/dist
           git commit -a -m "Deploy vitepress to GitHub Pages"
     - name: Sync to Another Repository
       uses: ad-m/github-push-action@master
