@@ -52,4 +52,4 @@ jobs:
               git config --local user.name "github-actions[bot]"
               git add .
               git commit -a -m "Deploy vitepress to GitHub Pages"
-              git push -force origin gh-pages
+              git push --force origin gh-pages
