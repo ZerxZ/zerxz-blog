@@ -36,8 +36,6 @@ jobs:
       # - uses: oven-sh/setup-bun@v1 # 如果使用 Bun，请取消注释
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
       - name: Install dependencies
         run:  bun install # 或 pnpm install / yarn install /
       - name: Build with VitePress
@@ -47,15 +45,19 @@ jobs:
         with:
           path: docs/.vitepress/dist
 
-  # 部署工作
+  # 部署其他仓库工作
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
-    name: Deploy
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          repository: https://github.com/ZerxZ/zerxz.github.io
+          path:  gh-pages
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy/docs/.vitepress/dist
+          publish_branch: gh-pages
