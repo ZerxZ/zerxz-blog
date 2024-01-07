@@ -54,7 +54,7 @@ jobs:
       - name: Sync to Another Repository
         uses: ad-m/github-push-action@master
         with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
+            github_token: ${{ secrets.BOT_TOKEN }}
             branch: gh-pages  # 目标仓库的分支
             repository: zerxz/zerxz.github.io  # 目标仓库的用户名和仓库名
             force: true
