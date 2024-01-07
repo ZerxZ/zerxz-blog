@@ -16,7 +16,7 @@ export default defineConfig({
       detailsLabel: '详细信息'
     },
     lineNumbers: true,
-    toc: { level: [1, 2] },
+    theme:"one-dark-pro"
   },
   extends: blogTheme,
   lang: 'zh-cn',

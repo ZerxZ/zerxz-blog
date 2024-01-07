@@ -13,3 +13,6 @@ categories:
 <<< @/code-godot/base_node.gd{1,3 gdscript}
 :::
 ## 属性
+::: code-group
+<<< @/code-godot/setget.gd{gdscript}
+:::
