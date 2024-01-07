@@ -45,19 +45,20 @@ jobs:
         with:
           path: docs/.vitepress/dist
 
-  # 部署其他仓库工作
-  deploy:
+  # 将打包同步到其他仓库
+  sync:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          repository: ZerxZ/zerxz.github.io
-          path:  gh-pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./deploy/docs/.vitepress/dist
-          publish_branch: gh-pages
+          repository: zerxz/zerxz.github.io
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: sync
+      - name: Sync
+        run: |
+          cp -r docs/.vitepress/dist sync
+          cd sync
+          git config user.name github-actions
+          git config user.email
