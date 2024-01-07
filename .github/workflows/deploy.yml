@@ -42,10 +42,14 @@ jobs:
         run:  pnpm install # 或 pnpm install / yarn install /
       - name: Build with VitePress
         run: pnpm run build 
+      - name: Get Owner
+        run: |
+          OWNER=${{ github.repository_owner }}
+          echo "Repository owner: $OWNER"
       - name: Commit files
         run: |
               cd docs/.vitepress
-              git clone https://${{secrets.BOT_TOKEN}}@github.com/ZerxZ/zerxz.github.io.git -b gh-pages build
+              git clone https://${{secrets.BOT_TOKEN}}@github.com/${{github.repository_owner}}/${{github.repository_owner}}.github.io.git -b gh-pages build
               cp -r dist/* build
               cd build
               git config --local user.email "github-actions[bot]@users.noreply.github.com"
