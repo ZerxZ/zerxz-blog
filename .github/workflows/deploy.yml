@@ -46,8 +46,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: docs/.vitepress/dist
-      - name: Copy Files
-        run: cp -r docs/.vitepress/dist/* $GITHUB_WORKSPACE/dist
+          name: vitepress
     
 
   # 将打包同步到其他仓库
@@ -59,7 +58,10 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
-
+    - name: Download a vitepress Artifact
+      uses: actions/download-artifact@v2.1.1
+      with:
+        name: vitepress
     - name: Sync to Another Repository
       uses: ad-m/github-push-action@master
       with:
