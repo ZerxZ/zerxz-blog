@@ -6,13 +6,17 @@ tag:
 categories:
     - Godot
 ---
+# 备忘清单
 
-# 入门
-## 基础
+
+## 基础节点
+
 ::: code-group
-<<< @/code-godot/base_node.gd{1,3 gdscript}
+<<< @/code-godot/base_node.gd{gdscript}
 :::
+
 ## 属性
+
 ::: code-group
 <<< @/code-godot/setget.gd{gdscript}
 :::
