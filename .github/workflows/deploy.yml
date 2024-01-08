@@ -38,6 +38,7 @@ jobs:
         uses: pnpm/action-setup@v2 
         with:
           version: 8.14.0
+    
       - name: Install dependencies
         run:  pnpm install # 或 pnpm install / yarn install /
       - name: Build with VitePress
@@ -50,7 +51,6 @@ jobs:
         run: |
               cd docs/.vitepress
               git clone https://${{secrets.BOT_TOKEN}}@github.com/${{github.repository_owner}}/${{github.repository_owner}}.github.io.git -b gh-pages build
-              find build -path build/.git -prune -o -exec rm -rf {} \;
               cp -r dist/* build
               cd build
               git config --local user.email "github-actions[bot]@users.noreply.github.com"
