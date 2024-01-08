@@ -4,3 +4,4 @@ cache
 .temp
 .DS_Store
 yarn.lock
+pnpm-lock.yaml
