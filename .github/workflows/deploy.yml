@@ -50,7 +50,7 @@ jobs:
         run: |
               cd docs/.vitepress
               git clone https://${{secrets.BOT_TOKEN}}@github.com/${{github.repository_owner}}/${{github.repository_owner}}.github.io.git -b gh-pages build
-              rm -rf build/!(.git|readme.md)
+              find build -path build/.git -prune -o -exec rm -rf {} \;
               cp -r dist/* build
               cd build
               git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -58,3 +58,4 @@ jobs:
               git add .
               git commit -a -m "Deploy vitepress to GitHub Pages"
               git push --force origin gh-pages
+    
