@@ -50,7 +50,7 @@ jobs:
         run: |
               cd docs/.vitepress
               git clone https://${{secrets.BOT_TOKEN}}@github.com/${{github.repository_owner}}/${{github.repository_owner}}.github.io.git -b gh-pages build
-              rm -rf build/* --exclude=build/.git --exclude=build/readme.md
+              rm -rf build/* !(.git|readme.md)
               cp -r dist/* build
               cd build
               git config --local user.email "github-actions[bot]@users.noreply.github.com"
