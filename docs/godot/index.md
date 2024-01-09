@@ -1,5 +1,5 @@
 ---
-title: GDSCRIPT4 速查表
+title: GDSCRIPT(GODOT4.X) 速查表
 description: 速查表
 tag:
     - Godot
@@ -19,4 +19,9 @@ categories:
 
 ::: code-group
 <<< @/code-godot/setget.gd{gdscript}
+:::
+
+## For循环
+::: code-group
+<<< @/code-godot/for-statement.gd{gdscript}
 :::
