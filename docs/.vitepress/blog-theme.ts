@@ -106,7 +106,8 @@ const blogTheme = getThemeConfig({
     mapping:"pathname",
     lang:"zh-CN",
 
-  }
+  },
+  mermaid:true
 })
 
 export { blogTheme }

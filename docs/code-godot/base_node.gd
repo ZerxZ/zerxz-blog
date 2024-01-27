@@ -1,4 +1,4 @@
-# 自定义节点图片
+# 自定义节点图标
 @icon("res://icon.svg")
 # 自定义节点类名
 class_name MyNode
