@@ -7,6 +7,7 @@ description: 生命周期
 
 ---
 # Godot生命周期
+
 ```mermaid
 stateDiagram-v2
     [*] --> Initialization 
