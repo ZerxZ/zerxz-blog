@@ -22,12 +22,13 @@ stateDiagram-v2
          _static_init --> _init
          _init --> _notification_init
          _notification_init --> [*]
-        state "Notification" as _notification_init {
-        NOTIFICATION_SCENE_INSTANTIATED(20)  --> NOTIFICATION_PARENTED(18)
-        } 
+       
     }
-   
-    state EnterTree {
+    state "Notification" as _notification_init {
+NOTIFICATION_SCENE_INSTANTIATED(20)  --> NOTIFICATION_PARENTED(18)
+}
+
+state EnterTree {
         [*] --> _enter_tree
         _enter_tree --> tree_entered
         tree_entered --> _notification_tree_enter
