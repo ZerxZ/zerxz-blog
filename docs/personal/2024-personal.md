@@ -12,3 +12,4 @@ categories:
 [ ] 掌握Godot源代码
 [ ] 每周坚持写一篇文章的Blog
 [ ] 复刻宝可梦
+[ ] 看完TimothyQiu的《勇者传说》
